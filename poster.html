@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>Away day poster</title>
+</head>
+
+<body>
+  <div class="container" id="imageDIV">
+    <div class="main" style="padding: 15px;">
+      <div class="header">
+        <div class="row" style="padding: 0 15px">
+          <div class="col-md-8" style="padding-top: 30px;">
+            <h1 class="display-4">CITCoM</h1>
+            <p class="lead">Causal Inference for Testing Computational Models</p>
+          </div>
+          <div class="col-md-4 text-right">
+            <img src="logo-sheffield.png" height="150px" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding-bottom: 15px;">
+        <div class="col-md-4" style="padding: 0px 7.5px 0px 0px;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Testing Models is Hard</h5>
+              <ul class="card-text">
+                <li>Long runtimes</li>
+                <li>Computationally expensive</li>
+                <li>Vast, uncertain input space</li>
+                <li>Expected outputs unknown</li>
+                <li>Nondeterministic</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0 7.5px 0 7.5px;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Testing is a Causal Activity</h5>
+              <p class="card-text">
+                Causal tests specify the expected effect of <i>changing</i> the input on the output.
+                This is very similar to <i>causal questions</i> in causal inference, which addresses many of the challenges we face.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0 0 0 7.5px;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Aims and Objectives</h5>
+              <ul class="card-text">
+                <li>Use causal reasoning to test models</li>
+                <li>Use CI to maximise data efficiency</li>
+                <li>Automatically generate <i>causal tests</i></li>
+                <li>Measure test adequacy causally</li>
+                <li>Use causal reasoning to locate faults</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="background: white; margin-bottom: 15px;">
+        <div class="col-md-12 poisson-process">
+          <div style="margin-bottom: 15px;">
+            <h2 style="background: white; padding: 15px; margin-bottom: 15px;">Motivating Example - Poisson Line Process</h2>
+            <div class="row" style="margin-bottom: 15px;">
+              <div class="col-md-6" style="padding: 0px 7.5px 0px 0px;">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Test Case Generation</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Which input values do we want to test?</h6>
+                    <p class="card-text">
+                      Users want to test <i>abstract</i> properties like "When we double the intensity, num_shapes_unit should quadruple".
+                    </p>
+                    <p class="card-text">
+                      CI needs <i>concrete</i> properties like "When we change the intensity from <i>I=i</i> to <i>I=i'</i>, num_shapes_unit should quadruple".
+                    </p>
+                    <p class="card-text">
+                      We need a way of choosing which <i>treatment values</i> to use to get a good coverage of the input space using as few tests as possible.
+                      Latin Hypercube Sampling seems like a promising technique.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" style="padding: 0 0 0 7.5px;">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Test Adequacy</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">How do we know when we've done enough tests?</h6>
+                    <p class="card-text">
+                      We need a way to measure our <i>coverage</i> of modelling scenarios so we know when we've done enough tests.
+                    </p>
+                    <p class="card-text">
+                      We can use the causal structure as a basis for this: If every edge is sufficiently covered, then the model is sufficiently tested.
+                    </p>
+                    <p class="card-text">
+                      What does it mean to "cover" an edge? If we generate test inputs according to a statistical distribution, we can use KS tests to determine whether our tests form a statistically significant sample.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img src="dag.dot.svg" width="90%" style="display: block; margin: 0 auto; margin-bottom: 15px;" />
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="col-md-6" style="padding: 0px 7.5px 0px 0px;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Progress So Far</h5>
+              <ul>
+                <li>Publication "Testing Causality in Scientific Modelling Software" currently under review</li>
+                <li>Several other publications currently in progress</li>
+                <li>Causal Testing Framework software artefact</li>
+                <li>Found bugs in several computational models</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="padding: 0 0 0 7.5px;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Causal Testing Framework</h5>
+              <ul>
+                <li>Applies techniques from causal inference to software testing</li>
+                <li>Users can write causal tests at a high level, without needing to understand CI</li>
+                <li>Works "out of the box", but is highly customisable</li>
+                <li>Implemented in Python, but can work with any model</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 15px; background: white;">
+        <div class="col-md-12">
+          <h2 style="padding: 15px 0;">Do you have a model you'd like us to test?</h2>
+          <p>
+            The Causal Testing Framework is very much a work in progress. We are looking for models to test it out on. We are also looking for modellers to try out our framework and contribute their views.
+          </p>
+        </div>
+        <div class="col-md-6" style="padding: 0px 7.5px 0px 0px;">
+          <div class="card">
+            <div class="card-body" style="padding: 0 0 15px 15px">
+              <h5 class="card-title">Benefits for you</h5>
+              <ul>
+                <li>Assurance that your model works well</li>
+                <li>Potential to coauthor on resulting publications</li>
+                <li>Potential to contribute to the causal testing framework</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="padding: 0 0 0 7.5px;">
+          <div class="card">
+            <div class="card-body" style="padding: 0 15px 15px 0">
+              <h5 class="card-title">Benefits for us</h5>
+              <ul>
+                <li>Case studies to demonstrate the causal testing framework</li>
+                <li>Input from users to help us improve the framework</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
